@@ -1,0 +1,7 @@
+/* App.css */
+.container {
+  height: 100vh;              /* Full viewport height */
+  display: flex;              /* Enable flexbox */
+  justify-content: center;    /* Center horizontally */
+  align-items: center;        /* Center vertically */
+}
