@@ -90,9 +90,5 @@ The reference frontend should do the following by calling the reference backend 
 Generate a PlantUML Sequence Diagram for the above requirements
 
 
-COSHARED
-
-SK02254b25d4886ba0638721a894ebff18
-jSTgqUd6cJorNOZogzOOeRBRUn0GQ9Yl
 
 
