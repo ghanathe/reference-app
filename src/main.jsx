@@ -1,13 +1,11 @@
-// src/main.jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ReactDOM from 'react-dom/client'; // Updated for React 18+
 import { Auth0Provider } from '@auth0/auth0-react';
-import App from './App';
-import OAuthCallback from './OAuthCallback';
-import './index.css'; // if you have any global styles
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
-import customTheme from './themes/customTheme'; // Import the new theme
+import customTheme from './themes/customTheme';
+import App from './App';
+import './index.css'; // Global styles
 
 const domain = 'dev-c2blv0uhxjwl7t1k.us.auth0.com'; // e.g., your-domain.auth0.com
 const clientId = 'qutiSONbhiDs2lJWjR7jPdkf3FADSsfM';
@@ -23,15 +21,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       scope: "openid profile"
     }}
   >
-    <Router>
-    <ThemeProvider theme={customTheme}>
-        
-     
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/oauth-callback" element={<OAuthCallback />} />
-      </Routes>
+    <BrowserRouter>
+      <ThemeProvider theme={customTheme}>
+        <App />
       </ThemeProvider>
-    </Router>
+    </BrowserRouter>
   </Auth0Provider>
 );
