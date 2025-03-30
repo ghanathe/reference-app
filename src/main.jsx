@@ -6,6 +6,8 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import App from './App';
 import OAuthCallback from './OAuthCallback';
 import './index.css'; // if you have any global styles
+import { ThemeProvider } from '@mui/material/styles';
+import customTheme from './themes/customTheme'; // Import the new theme
 
 const domain = 'dev-c2blv0uhxjwl7t1k.us.auth0.com'; // e.g., your-domain.auth0.com
 const clientId = 'qutiSONbhiDs2lJWjR7jPdkf3FADSsfM';
@@ -22,10 +24,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     }}
   >
     <Router>
+    <ThemeProvider theme={customTheme}>
+        
+     
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/oauth-callback" element={<OAuthCallback />} />
       </Routes>
+      </ThemeProvider>
     </Router>
   </Auth0Provider>
 );

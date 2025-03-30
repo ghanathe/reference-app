@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import AccountsList from './AccountsList';
+import LogoutButton from './LogoutButton';
+import './App.css';
 
 const App = () => {
   const { isAuthenticated, loginWithRedirect, getAccessTokenSilently } = useAuth0();
@@ -129,11 +131,14 @@ const App = () => {
   }, [popup]);
 
   return (
-    <div>
+    <div style={{
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #1A2525 0%, #263535 100%)', // Matches theme
+    }}>
       <h1>Reference App</h1>
       {isAuthenticated ? (
         <>
-          <p>You are logged in.</p>
+          <p>You are logged in.</p><LogoutButton />
           <button onClick={handleAtpDirectIntegrationFlow}>
             Pay by Bank via Direct Integration
           </button>
