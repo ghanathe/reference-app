@@ -166,7 +166,7 @@ const Home = () => {
                             <Typography variant="body1" color="text.secondary" align="center" sx={{ mt: 2 }}>
                                 You’re logged in and ready to explore. Enjoy the futuristic vibes!
                             </Typography>
-                            <Box>
+                            <Box sx={{ mt: 2 }}>
                                 <Grid container spacing={2}>
                                     <Grid size={4}>
                                         <Stack spacing={2}>
