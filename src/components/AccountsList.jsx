@@ -1,23 +1,37 @@
 // src/AccountsList.jsx
 import React from 'react';
+import { 
+  Typography, 
+  List, 
+  ListItem, 
+  ListItemText, 
+  Paper, 
+  Box 
+} from '@mui/material';
 
-const AccountsList = ({accounts}) => {
- 
+const AccountsList = ({ accounts }) => {
   return (
-    <div>
-      <h2>Consented Accounts</h2>
+    <Box sx={{ p: 2 }}>
+      <Typography variant="h5" component="h2" gutterBottom>
+        Consented Accounts
+      </Typography>
       {accounts.length === 0 ? (
-        <p>No accounts found.</p>
+        <Typography variant="body1">No accounts found.</Typography>
       ) : (
-        <ul>
-          {accounts.map((account, index) => (
-            <li key={index}>
-              {account.accountType} — Balance: {account.currentBalance} 
-            </li>
-          ))}
-        </ul>
+        <Paper elevation={1}>
+          <List>
+            {accounts.map((account, index) => (
+              <ListItem key={index} divider>
+                <ListItemText 
+                  primary={account.accountType}
+                  secondary={`Balance: ${account.availableCashBalance ? account.availableCashBalance : account.currentBalance ? account.currentBalance : account.principalBalance}`}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </Paper>
       )}
-    </div>
+    </Box>
   );
 };
 
